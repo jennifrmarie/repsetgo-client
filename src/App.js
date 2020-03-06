@@ -15,30 +15,6 @@ export default class App extends React.Component {
     selectedDay: '',
   }
 
-  // componentDidMount() {
-  //   Promise.all([
-  //     fetch(`localhost3000/items`),
-  //     fetch(`localhost3000/dates`)
-  //   ])
-  //     .then(([itemsRes, datesRes]) => {
-  //       if (!itemsRes.ok)
-  //         return itemsRes.json().then(e => Promise.reject(e))
-  //       if (!datesRes.ok)
-  //         return datesRes.json().then(e => Promise.reject(e))
-
-  //       return Promise.all([
-  //         itemsRes.json(),
-  //         datesRes.json(),
-  //       ])
-  //     })
-  //     .then(([items, dates]) => {
-  //       this.setState({ items, dates })
-  //     })
-  //     .catch(error => {
-  //       console.error({ error })
-  //     })
-  // }
-
   addItem = (item) => {
     this.setState({
       items: [
@@ -70,7 +46,6 @@ export default class App extends React.Component {
        items: [],
        selectedDays: date,
      })
-     console.log(this.state.selectedDay)
   }
 
   setTerm = (term) => {
@@ -97,19 +72,20 @@ export default class App extends React.Component {
     })
   }
 
-  renderNavRoutes() {
+
+  renderMainRoutes() {
     return (
-    <>
+      <>
     <Route
-      path="/dashboard"
+      exact path="/dashboard"
       component={Dashboard}
     />
     <Route 
-      path='/'
+      exact path='/'
       component={LandingPage}
     />
     <Route
-      path='/add-workout'
+      exact path='/add-workout'
       component={WorkoutForm}
     />
     <Route
@@ -118,7 +94,6 @@ export default class App extends React.Component {
     />
     </>
     )
-
   }
 
   render() {
@@ -141,15 +116,13 @@ export default class App extends React.Component {
     return (
       <AppContext.Provider value={value}>
         <div className="App">
-          <nav className='App__nav'></nav>
+          <nav className='App__nav'>
+
+          </nav>
             <header className='App__header'>
-              {/* <h1>
-                <Link to='/dashboard' type='button' className='app-title'>Reppy, Set, GO!</Link>
-                {' '}
-              </h1> */}
             </header>
             <main className='App__main'>
-              {this.renderNavRoutes()}
+            {this.renderMainRoutes()}
             </main>
           
         </div>

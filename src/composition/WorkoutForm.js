@@ -4,15 +4,18 @@ import uuid from 'uuid'
 import WorkoutList from './WorkoutList'
 import './WorkoutForm.css'
 import NavButton from './NavButton'
-
-export default class WorkoutForm extends Component {
+import { withRouter } from 'react-router-dom'
+ 
+class WorkoutForm extends Component {
     static defaultProps = {
         match: {
           params: {}
         },
         history: {
-          goBack: () => { }
+          push: () => { }
         },
+        dates: [],
+        selectedDays: [],
       }
     static contextType = AppContext
     constructor(props) {
@@ -42,7 +45,6 @@ export default class WorkoutForm extends Component {
         }
     }
     handleSubmit = (e) => {
-        // alert('A workout was submitted: ' + this.state.name)
         e.preventDefault()
         if(this.props.match.params.id) {
             const item = this.context.items.find(item => item.id == this.props.match.params.id)
@@ -69,15 +71,11 @@ export default class WorkoutForm extends Component {
             reps: '',
             weight: '',
         })
-
-        // console.log(date)
       }
     
     handleNameChange(e) {
         this.setState({
             name: e.target.value,
-            // reps: e.target.value,
-            // sets: e.target.value
         })
       }
 
@@ -99,10 +97,13 @@ export default class WorkoutForm extends Component {
         })
     }
     render() {
+        const location = {
+            pathname: '/dashboard',
+            state: { dates: [] }
+        }
         return (
             <div class="workout-box">
                 <h1>REPPY, SET, GO!</h1>
-                {/* <h2>{this.context.selectedDay.toString()}</h2> */}
                 <form class="workout-form">
                     <label htmlFor='workout-name-input'>
                         WORKOUT:
@@ -124,8 +125,6 @@ export default class WorkoutForm extends Component {
                     </label>
                     <input class="form-box4" type="text" value={this.state.weight}
                         onChange={this.handleWeightChange.bind(this)} />
-                    {/* <input class="form-box" type="text" value={this.state.reps}
-                        onChange={this.handleFormChange.bind(this)} /> */}
                     </form>
                     <button class="submit-button" onClick={this.handleSubmit}>Submit</button>
 
@@ -137,7 +136,7 @@ export default class WorkoutForm extends Component {
                 <NavButton
                     tag='button'
                     role='link'
-                    onClick={() => this.props.history.goBack()}
+                    onClick={() => this.props.history.push(location)}
                     className='NotePage__back-button'
                     >
                     Back
@@ -146,3 +145,5 @@ export default class WorkoutForm extends Component {
         )
     }
 }
+
+export default withRouter(WorkoutForm)

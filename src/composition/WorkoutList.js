@@ -28,7 +28,6 @@ export default class WorkoutList extends Component {
           {
             items.map((item, index) => <li class="exercise-add" key={index}>
             <div class="item-name">{item.name}{':  '}
-            {/* {item.date.toString()}{' '} */}
             {item.sets} sets{',  '}
             {item.reps} reps{':  '}
             {item.weight} lbs

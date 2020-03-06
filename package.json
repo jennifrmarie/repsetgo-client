@@ -16,6 +16,8 @@
     "react-scripts": "3.3.0",
     "react-transition-group": "^1.2.1"
   },
+  "homepage" : "http://jennifrmarie.github.io/repsetgo-client",
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

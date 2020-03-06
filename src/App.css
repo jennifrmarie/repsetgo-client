@@ -39,10 +39,6 @@ h1 {
 }
 
 .li-date {
-  /* width: 50%; */
-  /* max-width: 60%; */
-  /* position: relative;
-  left: 10%; */
   list-style: none;
   cursor: pointer;
   text-decoration: none;

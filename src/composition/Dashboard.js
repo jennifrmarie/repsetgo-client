@@ -6,19 +6,23 @@ import WorkoutList from './WorkoutList';
 import { Link } from 'react-router-dom';
 import AppContext from '../AppContext'
 import './Dashboard.css'
+import { withRouter } from 'react-router-dom'
 
-export default class Dashboard extends Component {
+class Dashboard extends React.Component {
+state = {
+  selectedDays: []
+}  
 static contextType = AppContext
 
   handleWeekClick = (weekNumber, days, e) => {
     this.context.setDays(days)
   };
 
-  // handleDayClick = (day, { selected }) => {
-  //   this.setState({
-  //     selectedDay: day,
-  //   })
-  // }
+  handleDayClick = (day, { selected }) => {
+    this.setState({
+      selectedDay: day,
+    })
+  }
 
   handleDateClicked = (index) => {
   //  const index = e.currentTarget.getAttribute("data-index")
@@ -50,13 +54,13 @@ render() {
       }
     };
     let dates = this.context.selectedDays
-  
-    const Datelist = () => (
+    // console.log(date)
+    const DateList = () => (
       <div>
       <ul className="date-selector">
         {dates.map((date, index) => 
         <li key={index} data-index={index} className="li-date" 
-        onClick={e => this.handleDateClicked(index)}>
+        onClick={() => this.props.history.push("/add-workout") && this.context.handleDateClick(index)}>
           {moment(date).format('MMM Do, YYYY')}
         </li>
         )}
@@ -78,11 +82,10 @@ render() {
           modifiersStyles={modifiersStyles}
           showWeekNumbers
           onWeekClick={this.handleWeekClick}
-
         />
         </div>
-        {/* {this.state.selectedDays} */}
-        <Datelist 
+        {/* {this.context.selectedDays} */}
+        <DateList 
           />
       
       <div>
@@ -94,3 +97,5 @@ render() {
     );
   }
 }
+
+export default withRouter(Dashboard)
