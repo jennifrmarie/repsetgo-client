@@ -4,3 +4,7 @@
     color:black;
     margin-top: 100px;
 }
+
+#username, #password {
+    color: black;
+}
