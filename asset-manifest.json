@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/repsetgo-client/static/css/main.62f0518c.chunk.css",
+    "main.js": "/repsetgo-client/static/js/main.b0bcd8eb.chunk.js",
+    "main.js.map": "/repsetgo-client/static/js/main.b0bcd8eb.chunk.js.map",
+    "runtime-main.js": "/repsetgo-client/static/js/runtime-main.1445931b.js",
+    "runtime-main.js.map": "/repsetgo-client/static/js/runtime-main.1445931b.js.map",
+    "static/css/2.c6231af7.chunk.css": "/repsetgo-client/static/css/2.c6231af7.chunk.css",
+    "static/js/2.1eea5526.chunk.js": "/repsetgo-client/static/js/2.1eea5526.chunk.js",
+    "static/js/2.1eea5526.chunk.js.map": "/repsetgo-client/static/js/2.1eea5526.chunk.js.map",
+    "index.html": "/repsetgo-client/index.html",
+    "precache-manifest.c7c17b64e82e598dfdcd205120f7fb42.js": "/repsetgo-client/precache-manifest.c7c17b64e82e598dfdcd205120f7fb42.js",
+    "service-worker.js": "/repsetgo-client/service-worker.js",
+    "static/css/2.c6231af7.chunk.css.map": "/repsetgo-client/static/css/2.c6231af7.chunk.css.map",
+    "static/css/main.62f0518c.chunk.css.map": "/repsetgo-client/static/css/main.62f0518c.chunk.css.map",
+    "static/js/2.1eea5526.chunk.js.LICENSE": "/repsetgo-client/static/js/2.1eea5526.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1445931b.js",
+    "static/css/2.c6231af7.chunk.css",
+    "static/js/2.1eea5526.chunk.js",
+    "static/css/main.62f0518c.chunk.css",
+    "static/js/main.b0bcd8eb.chunk.js"
+  ]
+}
